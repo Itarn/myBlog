@@ -4,36 +4,21 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
 
 module.exports = {
-  title: 'Alan Wang',
+  title: 'Learning',
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/' },
-      { text: 'VuePress', link: 'https://vuepress.vuejs.org/' },
-      {
-        text: 'Languages',
-        items: [
-          { text: 'Group1', items: [
-            { text: 'Chinese', link: '/language/chinese' },
-            { text: 'Japanese', link: '/language/japanese' }] 
-          },
-          { text: 'Group2', items: [
-            { text: 'Chinese', link: '/language/chinese' },
-            { text: 'Japanese', link: '/language/japanese' }]
-          }
-        ]
-      }
+      { text: 'All', link: '/all/' },
+      { text: 'Markdown', link: '/markdown/' },
+      { text: 'github', link: 'https://github.com/ainialan6' }
     ],
-    sidebar: {
-      '/guide/': [
-        {
-          title: 'guide',
-          collapsable: false
-        },
-        'guide1',
-        'guide2'
-      ]
+    sidebar: 'auto',
+    markdown: {
+      config: md => {
+        md.use(require('markdown-it'))
+      }
     },
+    lastUpdated: 'Last Updated', // string | boolean
     // 构建
     postcss: {},
     scss: {},
